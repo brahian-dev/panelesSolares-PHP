@@ -66,9 +66,13 @@ if(isset($_POST['jsonData'])&&!empty($_POST['jsonData'])){
 <div class="card-panel">
     <div class="card-content" >
         <div class="row">
-            <div class="col s12 center-align">
+            <div class="col s12 center">
                 <div class="chart-container">
                     <canvas id="chart"></canvas>
+                    <br><br>
+                    <div class="row">
+                        <img class="responsive-img" src="../../images/energia.png">
+                    </div>
                 </div>
             </div>
         </div>
