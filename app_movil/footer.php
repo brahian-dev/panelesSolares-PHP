@@ -29,32 +29,36 @@
 <script  src="../js/util.js" type="text/javascript"></script>
 <script  type="text/javascript"><?=$sjs?></script>
 <script>
-$('.datepickerSellTicket').pickadate({
-firstDay: true,
-onClose: function() {
-    showLoadingScreen();
-xajax_see_hour_operation_today(data,xajax.getFormValues('frmSellTicket')); 
-}
-});
+    $(document).ready(function(){
+        $('select').formSelect();
+    });
 
-$('.datepickerChangeTicket').pickadate({
-firstDay: true
-});
+    $('.datepickerSellTicket').pickadate({
+        firstDay: true,
+        onClose: function() {
+            showLoadingScreen();
+            xajax_see_hour_operation_today(data,xajax.getFormValues('frmSellTicket')); 
+        }
+    });
 
-$('.datepickerNoClose').pickadate({
-firstDay: true,
-onClose: function() {
-    hideLoadingScreen();
-}
-});
+    $('.datepickerChangeTicket').pickadate({
+        firstDay: true
+    });
 
-$('.datepickerGlobalClose').pickadate({
-firstDay: true,
-onClose: function() {
-    showLoadingScreen();
-consultarSaldo()
-}
-});
+    $('.datepickerNoClose').pickadate({
+        firstDay: true,
+        onClose: function() {
+            hideLoadingScreen();
+        }
+    });
+
+    $('.datepickerGlobalClose').pickadate({
+        firstDay: true,
+        onClose: function() {
+            showLoadingScreen();
+            consultarSaldo()
+        }
+    });
 
 </script>
 </body>

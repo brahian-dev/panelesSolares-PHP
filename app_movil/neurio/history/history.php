@@ -24,29 +24,41 @@ if(isset($_POST['jsonData'])&&!empty($_POST['jsonData'])){
     <div class="card-panel">
         <div class="card-content" >
             <div class="row">
-                <label>Panel:</label>
-                <select class="browser-default" id="optPanelId" name="optPanelId" onchange="loadDataHistory()">
-                    <option value="0x0000C47F510354BA">0x0000C47F510354BA</option>
-                    <option value="0x0000C47F518CC718">VELONA 3</option>
-                    <option value="0x0000C47F510354BA">Anapoima</option>
-                </select>
-                <div class="input-field col s6">
-                    <input type="text"  id="txtDateStart" name="txtDateStart" readonly value="<?=date('Y-m-d')?>"  type="date" class="datepickerNoClose">
-                    <label for="txtDateStart" class="active">FECHA DESDE</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="text"  id="txtDateEnd" name="txtDateEnd" readonly value="<?=date('Y-m-d')?>"  type="date" class="datepickerNoClose">
-                    <label for="txtDateEnd" class="active">FECHA HASTA</label>
+                <form class="col s12">
+                    <div class="row">
+                            <label>Panel:</label>
+                            <select class="browser-default" id="optPanelId" name="optPanelId" onchange="loadDataHistory()">
+                                <option value="0x0000C47F510354BA">0x0000C47F510354BA</option>
+                                <option value="0x0000C47F518CC718">VELONA 3</option>
+                                <option value="0x0000C47F510354BA">Anapoima</option>
+                            </select>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s6">
+                            <input type="text"  id="txtDateStart" name="txtDateStart" readonly value="<?=date('Y-m-d')?>"  type="date" class="datepickerNoClose">
+                            <label for="txtDateStart" class="active">Fecha Desde</label>
+                        </div>
+                        <div class="input-field col s6">
+                            <input type="text"  id="txtDateEnd" name="txtDateEnd" readonly value="<?=date('Y-m-d')?>"  type="date" class="datepickerNoClose">
+                            <label for="txtDateEnd" class="active">Fecha Hasta</label>
+                        </div>
+                    </div>
+                </form>
+                <div class="row">
+                    <div class="col s12 center">
+                        <button class="btn waves-effect waves-light" type="button"  name="btnSearch" id="btnSearch" onclick="loadDataHistory()" >
+                            Buscar
+                        </button>
+                    </div>
                 </div>
 
-                <div class="col s6 center-align" >
-                    <button class="btn waves-effect waves-light" type="button"  name="btnSearch" id="btnSearch" onclick="loadDataHistory()" >
-                        BUSCAR
-                    </button>
-                </div>
-                <div class="col s12 center-align">
+                <!-- Show result Here -->
+
+                <!-- <div class="row">
+                    <div class="col s12 center">
                         <div id="dvConsult"></div>
-                </div>
+                    </div>
+                </div> -->
             </div>
         </div>
     </div>
@@ -83,7 +95,10 @@ if(isset($_POST['jsonData'])&&!empty($_POST['jsonData'])){
                 'Consumo de Poder',
                 'Consumo de Energia'
             ]
-        }
+        },
+        options: {
+            responsive: true
+        },
     });
 </script>
 
@@ -117,7 +132,7 @@ if(isset($_POST['jsonData'])&&!empty($_POST['jsonData'])){
             ],
             fill: false,
             borderColor: random_rgba(),
-            tension: 0.1
+            tension: 0.1,
         }
 
         chart.data.datasets.push(dataSetConfig)

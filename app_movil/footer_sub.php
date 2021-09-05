@@ -28,33 +28,40 @@
 <script  src="https://cdn.rawgit.com/chingyawhao/materialize-clockpicker/master/dist/js/materialize.clockpicker.js" type="text/javascript"></script>
 <script  src="../../js/util.js" type="text/javascript"></script>
 <script  type="text/javascript"><?=$sjs?></script>
-<script>
-$('.datepickerSellTicket').pickadate({
-firstDay: true,
-onClose: function() {
-    showLoadingScreen();
-xajax_see_hour_operation_today(data,xajax.getFormValues('frmSellTicket')); 
-}
-});
+<script type="text/javascript">
 
-$('.datepickerChangeTicket').pickadate({
-firstDay: true
-});
+  // This init not Work, how ?
 
-$('.datepickerNoClose').pickadate({
-firstDay: true,
-onClose: function() {
-   hideLoadingScreen();
-}
-});
+  // $(document).ready(function(){
+  //   $('select').formSelect();
+  // });
 
-$('.datepickerGlobalClose').pickadate({
-firstDay: true,
-onClose: function() {
-    showLoadingScreen();
-consultarSaldo()
-}
-});
+  $('.datepickerSellTicket').pickadate({
+    firstDay: true,
+    onClose: function() {
+        showLoadingScreen();
+        xajax_see_hour_operation_today(data,xajax.getFormValues('frmSellTicket'));
+    }
+  });
+
+  $('.datepickerChangeTicket').pickadate({
+    firstDay: true
+  });
+
+  $('.datepickerNoClose').pickadate({
+    firstDay: true,
+    onClose: function() {
+      hideLoadingScreen();
+    }
+  });
+
+  $('.datepickerGlobalClose').pickadate({
+    firstDay: true,
+    onClose: function() {
+      showLoadingScreen();
+      consultarSaldo()
+    }
+  });
 
 </script>
 </body>
