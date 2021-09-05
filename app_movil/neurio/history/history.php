@@ -123,9 +123,10 @@ if(isset($_POST['jsonData'])&&!empty($_POST['jsonData'])){
     }
 
     function reloadGraphic(data, chart) {
+        const newDate = new Date(data.timestamp)
 
         dataSetConfig = {
-            label: data.timestamp,
+            label: newDate,
             data: [
                 data.netPower,
                 data.netEnergy,
