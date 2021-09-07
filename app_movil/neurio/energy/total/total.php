@@ -8,7 +8,7 @@
 <div class="energy-consumption">
     <div class="title center">
         <h3>
-            <i> Poder Total </i>
+            <i> Energia Total </i>
             <i class="Small material-icons">lightbulb_outline</i>
             <i class="Small material-icons">settings_power</i>
         </h3>
